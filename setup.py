@@ -5,7 +5,7 @@ setup(
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
-        "biopython>=1.80",
+        "biopython>=1.79",
         "pandas>=1.3.0",
         "biothings_client>=0.2.6",
         "matplotlib>=3.4.0",
