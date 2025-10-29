@@ -5,12 +5,12 @@ setup(
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
-        "biopython",
-        "pandas",
-        "biothings_client",
-        "matplotlib",
-        "seaborn",
-        "numpy"
+        "biopython>=1.80",
+        "pandas>=1.3.0",
+        "biothings_client>=0.2.6",
+        "matplotlib>=3.4.0",
+        "seaborn>=0.11.0",
+        "numpy>=1.20.0"
     ],
     author="Chintan Trivedi",
     author_email="c.trivedi@ucl.ac.uk",
@@ -22,6 +22,9 @@ setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Science/Research",
+        "Topic :: Scientific/Engineering :: Bio-Informatics"
     ],
     python_requires=">=3.6",
 )
