@@ -22,6 +22,7 @@ pip install pybridizer
 ```
 
 
+
 Dependencies: BLAST+
 
 Install BLAST+ by downloading executable from https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
@@ -30,6 +31,7 @@ Install BLAST+ by downloading executable from https://ftp.ncbi.nlm.nih.gov/blast
 To build a BLAST database, use the BLAST+ 'makeblastdb' command. 
 
 Detailed instructions are available on the NIH website at https://www.ncbi.nlm.nih.gov/books/NBK569841/
+
 
 
 Once the database is built, you can use Pybridizer to generate HCR probes for any transcript sequence for any species.
