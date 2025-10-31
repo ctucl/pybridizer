@@ -3,12 +3,16 @@ Pybridizer is a python repository to generate HCR v3.0 probes for in situ hybrid
 
 You can install the Pybridizer HCR probe design tool by first creating a virtual environment using conda:
 
+'''
 conda create --name pyrbidize python
 conda activate pybridize
+'''
 
 You can then use pip to install the HCR probe design tool:
 
+'''
 pip install pybridizer
+'''
 
 Dependencies: BLAST+ 
 Install BLAST+ by downloading executable from https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
