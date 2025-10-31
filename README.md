@@ -1,5 +1,7 @@
 
-![alt text](pybridizer5x.png)
+![alt text](pybridizer5x.png#gh-light-mode-only)
+![alt text](pybridizer_lite5x.png#gh-dark-mode-only)
+
 
 Pybridizer is a python repository to generate HCR v3.0 probes for in situ hybridization visualization of mRNA. The module allows for quick and easy design of probe pairs for the Hybridization Chain Reaction approach with visualization (Choi et al. Development 2018.)
 
