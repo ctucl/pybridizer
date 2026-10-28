@@ -1,3 +1,16 @@
+# input dir contents EXCEPT example
+input/*
+!input/sox10-drerio-NM_131875.1.fasta
+
+# output dir contents EXCEPT example
+output/*
+!output/sox10-drerio-NM_131875.1*
+
+# BLAST files
+*.faa
+result_tab.txt
+*_result_tab.txt
+
 # Python
 __pycache__/
 *.py[cod]
@@ -25,10 +38,6 @@ wheels/
 
 # VS Code
 .vscode/
-
-# BLAST files
-*.faa
-result_tab.txt
 
 # Environment
 venv/

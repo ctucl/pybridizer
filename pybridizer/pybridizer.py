@@ -119,7 +119,7 @@ def create_oligos(sequence, oligo_length=25, gap_length=2, frame_start_position=
     return oligos_all
 
 
-def blast_oligos(oligos_all, dbname, taxid=None):
+def blast_oligos(oligos_all, dbname, taxid=None, faa_fpath=None, result_fpath=None):
     """
     Performs BLAST search for oligonucleotides.
 
@@ -127,19 +127,26 @@ def blast_oligos(oligos_all, dbname, taxid=None):
         oligos_all (list): List of oligonucleotide sequences
         dbname (str): BLAST database name
         taxid (str/int, optional): Taxonomy ID for filtering. If None, no taxid filter is applied.
+        faa_fpath (str/None, optional): File path for "oligos.faa" file
+        result_fpath (str/None, optional): File path for "result_tab.txt" file
 
     Returns:
         pandas.DataFrame: Filtered BLAST results
     """
     if not oligos_all:
         raise ValueError("No oligonucleotides provided for BLAST search")
+    
+    if faa_fpath is None:
+        faa_fpath = "oligos.faa"
+    if result_fpath is None:
+        result_fpath = "result_tab.txt"
 
     records = []
     for (index, sequence) in enumerate(oligos_all):
         records.append(SeqRecord(sequence, id=str(index+1)))
     
     try:
-        SeqIO.write(records, 'oligos.faa', 'fasta')
+        SeqIO.write(records, faa_fpath, 'fasta')
     except IOError as e:
         raise IOError(f"Failed to write temporary FASTA file: {e}")
 
@@ -147,9 +154,9 @@ def blast_oligos(oligos_all, dbname, taxid=None):
     cmd_list = [
         'blastn',
         '-db', dbname,
-        '-query', 'oligos.faa',
+        '-query', faa_fpath,
         '-outfmt', '6',
-        '-out', 'result_tab.txt',
+        '-out', result_fpath,
         '-task', 'blastn-short',
         '-evalue', '100',
         '-strand', 'minus'
@@ -171,7 +178,7 @@ def blast_oligos(oligos_all, dbname, taxid=None):
         print('BLAST completed successfully')
         
         blast_result = pd.read_csv(
-            'result_tab.txt', 
+            result_fpath, 
             sep="\t", 
             header=None,
             names=[
